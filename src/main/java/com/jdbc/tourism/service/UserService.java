@@ -18,7 +18,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public User registerUser(User user) {
-        // хешируем пароль
+
         String hashedPassword = hashPassword(user.getPassword());
         user.setPassword(hashedPassword);
         return userRepository.save(user);
@@ -33,14 +33,12 @@ public class UserService {
     }
 
     private String hashPassword(String password) {
-        // реализуйте свой алгоритм хеширования пароля
-        // например, используя BCrypt
+
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
     private boolean checkPassword(String password, String hashedPassword) {
-        // реализуйте свой алгоритм проверки пароля
-        // например, используя BCrypt
+
         return BCrypt.checkpw(password, hashedPassword);
     }
 }

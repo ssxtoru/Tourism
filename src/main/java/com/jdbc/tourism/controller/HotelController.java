@@ -13,11 +13,12 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/tourism/hotels")
 public class HotelController {
     @Autowired
     private HotelService hotelService;
-    @GetMapping
+    @GetMapping("/get-all")
     public List<HotelDto> getAvailableHotels() {
         return hotelService.getAvailableHotels();
     }

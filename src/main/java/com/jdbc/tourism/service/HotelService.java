@@ -47,6 +47,7 @@ public class HotelService {
         Hotel hotel = new Hotel();
         hotel.setName(hotelDto.getName());
         hotel.setAddress(hotelDto.getAddress());
+        hotel.setRooms(hotelDto.getRooms());
         hotel.setStatus(Status.AVAILABLE);
         hotelRepository.save(hotel);
         return new HotelDto(hotel);

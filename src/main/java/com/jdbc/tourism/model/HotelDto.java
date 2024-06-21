@@ -15,6 +15,7 @@ public class HotelDto {
     private Long id;
     private String name;
     private String address;
+    private String rooms;
     private Status status;
 
 
