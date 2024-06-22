@@ -15,13 +15,13 @@ public class PoputchikController {
     @Autowired
     private PoputchikService poputchikService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Poputchik> createTrip(@RequestParam Long userId, @RequestBody Poputchik poputchik) {
         Poputchik newPoputchik = poputchikService.createTrip(userId, poputchik.getDestination(), poputchik.getDepartureDate(), poputchik.getReturnDate(), poputchik.getMaxCompanions());
         return new ResponseEntity<>(newPoputchik, HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping("/destination")
     public List<Poputchik> findTripsByDestination(@RequestParam String destination) {
         return poputchikService.findTripsByDestination(destination);
     }
